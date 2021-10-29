@@ -1,1 +1,5 @@
 pipeline,resource,pattern,value
+central-activities-zone,,WKT,geometry
+central-activities-zone,,TITLE,central-activities-zone
+central-activities-zone,,POLICY,geography
+
