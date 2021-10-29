@@ -1,10 +1,10 @@
-# XXX collection
+# Central activities zone collection
 
 [![License](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/digital-land/XXX/blob/main/LICENSE)
 
-A collection of XXX collected from YYY.
+A collection of central activities zones collected from local planning authorities.
 
-The national dataset is in a format consistent with other Digital Land datasets as defined by the [ZZZ schema](https://digital-land.github.io/specification/schema/ZZZ/).
+The national dataset is in a format consistent with other Digital Land datasets as defined by the [geography schema](https://digital-land.github.io/specification/schema/geography/).
 
 # Collection
 
