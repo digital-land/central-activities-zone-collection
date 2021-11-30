@@ -1,7 +1,11 @@
 CENTRAL_ACTIVITIES_ZONE_DATASET=$(DATASET_DIR)central-activities-zone.csv
 CENTRAL_ACTIVITIES_ZONE_TRANSFORMED_FILES=\
+    $(TRANSFORMED_DIR)central-activities-zone/49d00c9ea82a5a345caa61a873967764d38ac7d8b34514586e164c1426838c38.csv\
     $(TRANSFORMED_DIR)central-activities-zone/b7cd7941c1c8aee51465cbab3a72a81f42ba9393ee7c43ed142b5a278810c4e4.csv\
     $(TRANSFORMED_DIR)central-activities-zone/db5238c35bf94337fea6437627c66813009e86c44a569c6e7a95df31efd34db5.csv
+
+$(TRANSFORMED_DIR)central-activities-zone/49d00c9ea82a5a345caa61a873967764d38ac7d8b34514586e164c1426838c38.csv: collection/resource/49d00c9ea82a5a345caa61a873967764d38ac7d8b34514586e164c1426838c38
+	$(run-pipeline)
 
 $(TRANSFORMED_DIR)central-activities-zone/b7cd7941c1c8aee51465cbab3a72a81f42ba9393ee7c43ed142b5a278810c4e4.csv: collection/resource/b7cd7941c1c8aee51465cbab3a72a81f42ba9393ee7c43ed142b5a278810c4e4
 	$(run-pipeline)
