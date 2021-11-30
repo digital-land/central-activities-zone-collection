@@ -1,10 +1,10 @@
 # Central activities zone collection
 
-[![License](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/digital-land/XXX/blob/main/LICENSE)
+[![License](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/digital-land/central-activities-zone/blob/main/LICENSE)
+[![Run pipeline](https://github.com/digital-land/central-activities-zone-collection/actions/workflows/run.yml/badge.svg)](https://github.com/digital-land/central-activities-zone-collection/actions/workflows/run.yml)
+
 
 A collection of central activities zones collected from local planning authorities.
-
-The national dataset is in a format consistent with other Digital Land datasets as defined by the [geography schema](https://digital-land.github.io/specification/schema/geography/).
 
 # Collection
 
@@ -25,7 +25,7 @@ We recommend working in [virtual environment](http://docs.python-guide.org/en/la
 
 # Nightly collection
 
-The collection is [updated nightly](https://github.com/digital-land/ZZZ/actions) by the [GitHub Action](.github/workflows/run.yml).
+The collection is [updated nightly](https://github.com/digital-land/central-activities-zone/actions) by the [GitHub Action](.github/workflows/run.yml).
 
 # Building the national dataset
 
