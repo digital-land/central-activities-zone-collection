@@ -1,4 +1,4 @@
-name: Run collection
+name: Run pipeline
 on:
   schedule:
   - cron: 0 0 * * *
@@ -11,17 +11,14 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+    - name: Disk space
+      run: df -h
+
     - uses: actions/checkout@v2
-      with:
-        lfs: true
+
     - uses: actions/setup-python@v2
       with:
         python-version: 3.8
-
-    # hacky attempt at getting more disk space
-
-    - name: Disk space
-      run: df -h
 
     - name: Configure AWS Credentials
       uses: aws-actions/configure-aws-credentials@v1
@@ -37,7 +34,8 @@ jobs:
       run: 'git config user.email "${DLB_BOT_EMAIL}"
         git config user.name "${DLB_BOT_USERNAME}"
         git remote set-url origin https://${DLB_BOT_USERNAME}:${DLB_BOT_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
-        git checkout ${GITHUB_REF##*/}'
+        git checkout ${GITHUB_REF##*/}
+        '
 
     - name: Update makerules
       run: make makerules
