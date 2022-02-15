@@ -20,8 +20,8 @@ jobs:
 
     # hacky attempt at getting more disk space
 
-    - name: Maximize build disk space
-      uses: easimon/maximize-build-space@v5
+    - name: Disk space
+      run: df -h
 
     - name: Configure AWS Credentials
       uses: aws-actions/configure-aws-credentials@v1
