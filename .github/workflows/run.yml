@@ -11,8 +11,17 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - name: Maximize build disk space
-      uses: easimon/maximize-build-space@v5
+
+    - name: Disk space
+      run: df -h
+    - name: Remove dotnet
+      run: 'sudo rm -rf /usr/share/dotnet'
+    - name: Remove android kit
+      run: 'sudo rm -rf /usr/local/lib/android'
+    - name: Remove haskell
+      run: 'sudo rm -rf /opt/ghc'
+    - name: Disk space
+      run: df -h
 
     - uses: actions/checkout@v2
 
