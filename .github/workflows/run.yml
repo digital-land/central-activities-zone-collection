@@ -1,24 +1,23 @@
 name: Run pipeline
-
 on:
   schedule:
-    - cron: '0 0 * * *'
-  workflow_dispatch:
-
+  - cron: 0 30 * * *
+  workflow_dispatch: null
 env:
   DLB_BOT_EMAIL: ${{ secrets.DLB_BOT_EMAIL }}
   DLB_BOT_TOKEN: ${{ secrets.DLB_BOT_TOKEN }}
   DLB_BOT_USERNAME: ${{ secrets.DLB_BOT_USERNAME }}
-
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
+      with:
+        lfs: true
     - uses: actions/setup-python@v2
       with:
         python-version: 3.8
-        
+
     - name: Configure AWS Credentials
       uses: aws-actions/configure-aws-credentials@v1
       with:
@@ -30,11 +29,10 @@ jobs:
       run: echo running on branch ${GITHUB_REF##*/}
 
     - name: Setup git
-      run: |
-        git config user.email "${DLB_BOT_EMAIL}"
+      run: 'git config user.email "${DLB_BOT_EMAIL}"
         git config user.name "${DLB_BOT_USERNAME}"
         git remote set-url origin https://${DLB_BOT_USERNAME}:${DLB_BOT_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
-        git checkout ${GITHUB_REF##*/}
+        git checkout ${GITHUB_REF##*/}'
 
     - name: Update makerules
       run: make makerules
@@ -44,26 +42,23 @@ jobs:
 
     - name: Install dependencies
       run: make init
-      
-    - name: Fetch dataset files from S3
+
+    - name: Fetch previously collected resources from S3
       run: make fetch-s3
 
     - name: Run the collector
       run: make collect
 
-    - name: Commit collection
+    - name: Commit collection logs
       run: make commit-collection
 
-    - name: Update the collection dataset
+    - name: Build the collection database
       run: make collection
 
-    - name: Commit collection
-      run: make commit-collection
-      
-    - name: push collection files to S3
+    - name: Push collection database, logs to S3
       run: make push-collection-s3
 
-    - name: Run the pipeline to make the dataset
+    - name: Build datasets from the collected files
       run: make dataset
 
     - name: Push dataset files to S3
