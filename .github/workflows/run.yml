@@ -1,4 +1,4 @@
-name: Run pipeline
+name: Run collection
 on:
   schedule:
   - cron: 0 0 * * *
