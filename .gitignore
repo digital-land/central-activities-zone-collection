@@ -24,7 +24,7 @@ collection/resource/
 dataset/
 transformed/
 issue/
-collection/log.csv collection/resource.csv collection/pipeline.csv
+
 # files built from the collection
 collection/log.csv
 collection/resource.csv
