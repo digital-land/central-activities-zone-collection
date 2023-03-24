@@ -24,6 +24,7 @@ collection/resource/
 dataset/
 transformed/
 issue/
+flattened/
 
 # files built from the collection
 collection/log.csv
