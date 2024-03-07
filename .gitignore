@@ -30,3 +30,6 @@ flattened/
 collection/log.csv
 collection/resource.csv
 collection/pipeline.mk
+
+# logs in S3
+collection/log
